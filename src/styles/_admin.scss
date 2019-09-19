@@ -1,0 +1,10 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  .load-data {
+    margin-top: 50px;
+    width: 200px;
+    height: 40px;
+    text-transform: uppercase;
+  }
+}

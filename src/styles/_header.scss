@@ -1,0 +1,32 @@
+.header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  background-color: #333;
+
+  &__links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    transition-duration: 0.4s;
+
+    &-item {
+      text-transform: uppercase;
+      color: #fff;
+
+      &:first-child {
+        padding-right: 20px;
+      }
+
+      &:last-child {
+        padding-left: 20px;
+      }
+      &:hover {
+        transition-duration: 0.4s;
+        text-decoration: none;
+        color: #f505c5;
+        font-size: 18px;
+      }
+    }
+  }
+}

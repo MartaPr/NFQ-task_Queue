@@ -1,0 +1,11 @@
+.specialist {
+  display: flex;
+  justify-content: space-between;
+  &--left,
+  &--middle,
+  &--right {
+      display: flex;
+      flex-direction: column;
+      
+  }
+}
