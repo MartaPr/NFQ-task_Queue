@@ -4,8 +4,48 @@
   &--left,
   &--middle,
   &--right {
-      display: flex;
-      flex-direction: column;
-      
+    display: flex;
+    flex-direction: column;
+   .list {
+    margin-top: 20px;
+    text-align: center;
+    .customer {
+      margin: 10px;
+      padding: 5px;
+      .customer-wrapper {
+        .number {
+          font-size: 22px;
+          font-weight: bold;
+          color: #333;
+        }
+        .name {
+         .firstname {
+           padding-right: 5px;
+         }
+        }
+      }
+    }
+    .first-element {
+      color: #db1a1a;
+      background-color: #e8bebe;
+      .customer-wrapper {
+        .number {
+          font-size: 28px;
+          font-weight: bold;
+          color: #db1a1a;
+          
+        }
+        .name {
+         .firstname {
+           padding-right: 5px;
+           font-size: 22px;
+         }
+         .lastname {
+          font-size: 22px;
+         }
+        }
+      }
+    }
+   }   
   }
 }

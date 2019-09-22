@@ -4,6 +4,7 @@ import API from '../Utils/API';
 import Admin from '../pages/Admin';
 import Lightboard from '../pages/Lightboard';
 import Specialist from '../pages/Specialist';
+import Button from './Button';
 
 class Header extends Component {
   state = {
@@ -29,18 +30,6 @@ class Header extends Component {
     localStorage.setItem('load-data', JSON.stringify(customerList));
   };
 
-  // handleDelete = e => {
-  //   const customerList = [...this.state.customerList];
-  //   const index = customerList.indexOf(e.target.value);
-  //   console.log(index);
-  //   if (index !== -1) {
-  //     customerList.splice(index, 1);
-  //     this.setState({
-  //       customerList
-  //     });
-  //   }
-  // };
-
   filterCustomers = e => {
     let clicked = e.currentTarget.value;
     let filteredList = this.state.customerList.filter(item => {
@@ -50,13 +39,12 @@ class Header extends Component {
       filteredList,
       selectedOption: clicked
     });
-    console.log(filteredList);
   };
 
   showResults = () => {
     const filteredList = [...this.state.filteredList];
     const listItmes = filteredList.map((item, i) => (
-      <div key={i} className="customer">
+      <div key={item._id} className="customer">
         <div className="name-wrapper">
           <div>{i + 1}</div>
           <div className="customer customer--name">
@@ -64,16 +52,26 @@ class Header extends Component {
             <span>{item.custLastName}</span>
           </div>
         </div>
+        <Button
+          className="btn btn-danger"
+          text="Delete"
+          onClick={this.handleDelete}
+        />
       </div>
     ));
     return listItmes;
   };
 
-  handleDelete = () => {
-    const filteredList = [...this.state.filteredList];
-    filteredList.shift();
+  handleDelete = id => {
+    // const customerList = [...this.state.customerList];
+    // customerList.shift();
+    // this.setState({
+    //   customerList
+    // });
+    const customerList = [...this.state.customerList];
+    customerList.filter(item => item._id !== id);
     this.setState({
-      filteredList
+      customerList
     });
   };
 

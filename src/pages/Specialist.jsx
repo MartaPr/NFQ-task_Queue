@@ -36,11 +36,11 @@ const Specialist = props => {
           <span className="checkmark"></span>
         </label>
       </div>
-      <Button
+      {/* <Button
         className="btn btn-danger"
         text="Delete"
         onClick={props.deleteItem}
-      />
+      /> */}
       <div className="list">{props.results}</div>
     </div>
   );

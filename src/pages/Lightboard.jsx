@@ -4,12 +4,15 @@ const Lightboard = props => {
   const filterSpecOne = props.customerList.map((item, i) => {
     if (item.specName === 'Janine') {
       return (
-        <div key={i} className="customer">
-          <div className="name-wrapper">
-            <div>{i + 1}</div>
-            <div className="customer customer--name">
-              <span>{item.custFirstName}</span>
-              <span>{item.custLastName}</span>
+        <div
+          key={i}
+          className={i === 0 ? 'customer first-element' : 'customer'}
+        >
+          <div className="customer-wrapper">
+            <div className="number">{i + 1}</div>
+            <div className="name">
+              <span className="firstname">{item.custFirstName}</span>
+              <span className="lastname">{item.custLastName}</span>
             </div>
           </div>
         </div>
@@ -22,12 +25,15 @@ const Lightboard = props => {
   const filterSpecTwo = props.customerList.map((item, i) => {
     if (item.specName === 'Shirley') {
       return (
-        <div key={i} className="customer">
-          <div className="name-wrapper">
-            <div>{i + 1}</div>
-            <div className="customer customer--name">
-              <span>{item.custFirstName}</span>
-              <span>{item.custLastName}</span>
+        <div
+          key={i}
+          className={i === 0 ? 'customer first-element' : 'customer'}
+        >
+          <div className="customer-wrapper">
+            <div className="number">{i + 1}</div>
+            <div className="name">
+              <span className="firstname">{item.custFirstName}</span>
+              <span className="lastname">{item.custLastName}</span>
             </div>
           </div>
         </div>
@@ -40,12 +46,15 @@ const Lightboard = props => {
   const filterSpecThree = props.customerList.map((item, i) => {
     if (item.specName === 'John') {
       return (
-        <div key={i} className="customer">
-          <div className="name-wrapper">
-            <div>{i + 1}</div>
-            <div className="customer customer--name">
-              <span>{item.custFirstName}</span>
-              <span>{item.custLastName}</span>
+        <div
+          key={i}
+          className={i === 0 ? 'customer first-element' : 'customer'}
+        >
+          <div className="customer-wrapper">
+            <div className="number">{i + 1}</div>
+            <div className="name">
+              <span className="firstname">{item.custFirstName}</span>
+              <span className="lastname">{item.custLastName}</span>
             </div>
           </div>
         </div>
@@ -63,12 +72,16 @@ const Lightboard = props => {
         </div>
       </div>
       <div className="specialist specialist--middle">
-        <h2>Shirley</h2>
-        {filterSpecTwo}
+        <div className="list">
+          <h2>Shirley</h2>
+          {filterSpecTwo}
+        </div>
       </div>
       <div className="specialist specialist--right">
-        <h2>John</h2>
-        {filterSpecThree}
+        <div className="list">
+          <h2>John</h2>
+          {filterSpecThree}
+        </div>
       </div>
     </div>
   );
