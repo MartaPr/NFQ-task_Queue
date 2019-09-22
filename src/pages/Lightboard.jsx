@@ -1,103 +1,77 @@
-import React, { Component } from 'react';
-import Button from '../components/Button';
+import React from 'react';
 
-class Lightboard extends Component {
-  state = {
-    customerList: []
-  };
-
-  componentDidMount() {
-    const customerList = JSON.parse(localStorage.getItem('load-data'));
-    this.setState({
-      customerList
-    });
-  }
-
-  handleDelete = () => {
-    console.log('clicked');
-  };
-
-  filterSpecOne = () =>
-    this.state.customerList.map((item, i) => {
-      if (item.specName === 'Janine') {
-        return (
-          <div key={i} className="customer">
-            <div className="name-wrapper">
-              <div>{i + 1}</div>
-              <div className="customer customer--name">
-                <span>{item.custFirstName}</span>
-                <span>{item.custLastName}</span>
-              </div>
-            </div>
-          </div>
-        );
-      } else {
-        return null;
-      }
-    });
-
-  filterSpecTwo = () =>
-    this.state.customerList.map((item, i) => {
-      if (item.specName === 'Shirley') {
-        return (
-          <div key={i} className="customer">
+const Lightboard = props => {
+  const filterSpecOne = props.customerList.map((item, i) => {
+    if (item.specName === 'Janine') {
+      return (
+        <div key={i} className="customer">
+          <div className="name-wrapper">
             <div>{i + 1}</div>
             <div className="customer customer--name">
               <span>{item.custFirstName}</span>
               <span>{item.custLastName}</span>
-              <Button
-                className="btn btn-secondary"
-                onClick={this.handleDelete}
-                text="Delete"
-              />
             </div>
           </div>
-        );
-      } else {
-        return null;
-      }
-    });
+        </div>
+      );
+    } else {
+      return null;
+    }
+  });
 
-  filterSpecThree = () =>
-    this.state.customerList.map((item, i) => {
-      if (item.specName === 'John') {
-        return (
-          <div key={i} className="customer">
+  const filterSpecTwo = props.customerList.map((item, i) => {
+    if (item.specName === 'Shirley') {
+      return (
+        <div key={i} className="customer">
+          <div className="name-wrapper">
             <div>{i + 1}</div>
             <div className="customer customer--name">
               <span>{item.custFirstName}</span>
               <span>{item.custLastName}</span>
-              <Button
-                className="btn btn-secondary"
-                onClick={this.handleDelete}
-                text="Delete"
-              />
             </div>
           </div>
-        );
-      } else {
-        return null;
-      }
-    });
+        </div>
+      );
+    } else {
+      return null;
+    }
+  });
 
-  render() {
-    return (
-      <div className="container-md specialist">
-        <div className="specialist specialist--left">
+  const filterSpecThree = props.customerList.map((item, i) => {
+    if (item.specName === 'John') {
+      return (
+        <div key={i} className="customer">
+          <div className="name-wrapper">
+            <div>{i + 1}</div>
+            <div className="customer customer--name">
+              <span>{item.custFirstName}</span>
+              <span>{item.custLastName}</span>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  });
+  return (
+    <div className="container-md specialist">
+      <div className="specialist specialist--left">
+        <div className="list">
           <h2>Janine</h2>
-          {this.filterSpecOne()}
-        </div>
-        <div className="specialist specialist--middle">
-          <h2>Shirley</h2>
-          {this.filterSpecTwo()}
-        </div>
-        <div className="specialist specialist--right">
-          <h2>John</h2>
-          {this.filterSpecThree()}
+          {filterSpecOne}
         </div>
       </div>
-    );
-  }
-}
+      <div className="specialist specialist--middle">
+        <h2>Shirley</h2>
+        {filterSpecTwo}
+      </div>
+      <div className="specialist specialist--right">
+        <h2>John</h2>
+        {filterSpecThree}
+      </div>
+    </div>
+  );
+};
 
 export default Lightboard;
